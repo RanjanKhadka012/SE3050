@@ -61,7 +61,7 @@ CREATE TABLE Vendor (
   Phone           VARCHAR(30),
   Email           VARCHAR(120),
   Website         VARCHAR(200),
-  VendorCategory  VARCHAR(40)   -- kept as a simple label as in the ERD
+  VendorCategory  VARCHAR(40)
 );
 
 CREATE TABLE Product (
@@ -89,10 +89,10 @@ CREATE TABLE Inventory (
   CONSTRAINT fk_inv_vendor  FOREIGN KEY (VendorID)  REFERENCES Vendor(VendorID),
   CONSTRAINT fk_inv_product FOREIGN KEY (ProductID) REFERENCES Product(ProductID),
   CONSTRAINT fk_inv_event   FOREIGN KEY (EventID)   REFERENCES MarketEvent(EventID),
-  CONSTRAINT uq_inv UNIQUE (VendorID, ProductID, EventID)  -- one inventory row per vendor/product/event
+  CONSTRAINT uq_inv UNIQUE (VendorID, ProductID, EventID)
 );
 
--- Customers (the ERD shows a link to Market; treated as preferred/ home market)
+-- Customers
 CREATE TABLE Customer (
   UserID          INT AUTO_INCREMENT PRIMARY KEY,
   Name            VARCHAR(80) NOT NULL,
@@ -102,7 +102,7 @@ CREATE TABLE Customer (
   Username        VARCHAR(60) UNIQUE,
   PasswordHash    VARBINARY(255),     -- replace plain text with hash
   PreferredMarketID INT,
-  CCType          VARCHAR(20),        -- optional; in production use a tokenized vault
+  CCType          VARCHAR(20),
   CCZip           VARCHAR(10),
   CONSTRAINT fk_customer_market
     FOREIGN KEY (PreferredMarketID) REFERENCES Market(MarketID)
@@ -113,7 +113,7 @@ CREATE TABLE MarketVendor (
   MarketVendorID  INT AUTO_INCREMENT PRIMARY KEY,
   MarketID        INT NOT NULL,
   VendorID        INT NOT NULL,
-  EventID         INT,                     -- nullable to capture standing assignment at market level
+  EventID         INT,
   BoothNumber     VARCHAR(10),
   AttendanceDate  DATE,
   Status          ENUM('Invited','Confirmed','No-Show','Cancelled') DEFAULT 'Invited',
@@ -130,7 +130,7 @@ CREATE TABLE MarketVendor (
 CREATE TABLE `Order` (
   OrderID         INT AUTO_INCREMENT PRIMARY KEY,
   UserID          INT NOT NULL,
-  EventID         INT,                         -- optional if pickup is event-based
+  EventID         INT,
   OrderDate       DATETIME DEFAULT CURRENT_TIMESTAMP,
   PickupDate      DATETIME,
   TotalAmount     DECIMAL(10,2) NOT NULL DEFAULT 0.00,
