@@ -46,18 +46,18 @@ VALUES
 -- -------------------------
 INSERT INTO MarketEvent (EventID, MarketID, EventDate, StartTime, Address, Status, LocationID)
 VALUES
-(1,1,'2025-06-07','08:00','750 2nd St N','Scheduled',1),
-(2,2,'2025-06-07','08:00','289 5th St E','Scheduled',2),
-(3,3,'2025-06-14','09:00','351 S Lake Ave','Scheduled',3),
-(4,4,'2025-06-14','08:00','201 1st Ave SW','Scheduled',4),
-(5,5,'2025-06-21','08:30','100 River Hills','Scheduled',5),
-(6,6,'2025-06-21','09:00','100 Broadway N','Scheduled',6),
-(7,7,'2025-06-28','09:00','3 S 3rd St','Scheduled',7),
-(8,8,'2025-06-28','09:00','1 Paul Bunyan Dr','Scheduled',8),
-(9,9,'2025-07-05','08:30','1101 S 6th St','Scheduled',9),
-(10,10,'2025-07-05','08:00','2 Johnson St','Scheduled',10),
-(11,1,'2025-07-12','08:00','750 2nd St N','Scheduled',1),
-(12,2,'2025-07-12','08:00','289 5th St E','Scheduled',2);
+(1,1,'2025-12-11','08:00','750 2nd St N','Scheduled',1),
+(2,2,'2026-01-07','08:00','289 5th St E','Scheduled',2),
+(3,3,'2026-01-14','09:00','351 S Lake Ave','Scheduled',3),
+(4,4,'2026-02-14','08:00','201 1st Ave SW','Scheduled',4),
+(5,5,'2026-02-21','08:30','100 River Hills','Scheduled',5),
+(6,6,'2026-02-21','09:00','100 Broadway N','Scheduled',6),
+(7,7,'2026-03-28','09:00','3 S 3rd St','Scheduled',7),
+(8,8,'2026-03-28','09:00','1 Paul Bunyan Dr','Scheduled',8),
+(9,9,'2026-05-05','08:30','1101 S 6th St','Scheduled',9),
+(10,10,'2026-07-05','08:00','2 Johnson St','Scheduled',10),
+(11,1,'2026-08-12','08:00','750 2nd St N','Scheduled',1),
+(12,2,'2026-10-12','08:00','289 5th St E','Scheduled',2);
 
 -- -------------------------
 -- 3) Product Categories
@@ -306,3 +306,4 @@ VALUES
 (4,4,1,(SELECT TotalAmount FROM `order` WHERE OrderID=4),'2025-07-11 13:05','Card','TXN-1004','Succeeded');
 
 SET FOREIGN_KEY_CHECKS = 1;
+
