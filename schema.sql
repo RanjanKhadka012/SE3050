@@ -1,6 +1,8 @@
 -- =========================
 -- 1) Reference / Lookup
 -- =========================
+CREATE DATABASE Farmers_Market;
+USE Farmers_Market;
 CREATE TABLE Location (
   LocationID      INT AUTO_INCREMENT PRIMARY KEY,
   City            VARCHAR(80) NOT NULL,
