@@ -1,0 +1,181 @@
+USE Farmers_Market;
+
+-- =========================
+-- Locations
+-- =========================
+INSERT INTO Location (City, Country, Zip, Region, Latitude, Longitude)
+VALUES
+  ('Minneapolis',  'USA', '55401', 'Minnesota', 44.986656, -93.258133),
+  ('St. Paul',     'USA', '55101', 'Minnesota', 44.953703, -93.089958),
+  ('Duluth',       'USA', '55802', 'Minnesota', 46.786672, -92.100485),
+  ('Rochester',    'USA', '55902', 'Minnesota', 44.012122, -92.480199),
+  ('Mankato',      'USA', '56001', 'Minnesota', 44.163578, -93.999399),
+  ('Bemidji',      'USA', '56601', 'Minnesota', 47.473611, -94.880278),
+  ('Fargo',        'USA', '58102', 'North Dakota', 46.877186, -96.789803),
+  ('La Crosse',    'USA', '54601', 'Wisconsin', 43.801356, -91.239581),
+  ('Eau Claire',   'USA', '54701', 'Wisconsin', 44.811349, -91.498494),
+  ('Winona',       'USA', '55987', 'Minnesota', 44.055390, -91.666352);
+
+-- Assume LocationIDs 1–10 correspond to rows above
+
+-- =========================
+-- Markets (10 markets)
+-- =========================
+INSERT INTO Market (Name, Address, LocationID, OpenTime, CloseTime, StartDate, EndDate, Phone, Email)
+VALUES
+  ('Mill City Farmers Market',        '704 S 2nd St',          1, '08:00:00', '13:00:00', '2025-05-01 00:00:00', '2025-10-31 00:00:00', '612-555-0101', 'info@millcityfm.org'),
+  ('St. Paul Lowertown Market',       '290 5th St E',          2, '07:00:00', '13:00:00', '2025-05-15 00:00:00', '2025-10-15 00:00:00', '651-555-0102', 'contact@lowertownmarket.org'),
+  ('Duluth Harbor Farmers Market',    '200 Lake Ave S',        3, '08:00:00', '14:00:00', '2025-06-01 00:00:00', '2025-09-30 00:00:00', '218-555-0103', 'harbor@duluthfm.org'),
+  ('Rochester Downtown Farmers',      '1st Ave SW',            4, '07:30:00', '13:30:00', '2025-05-10 00:00:00', '2025-10:20 00:00:00', '507-555-0104', 'downtown@rochfm.org'),
+  ('Mankato Riverfront Market',       '100 Riverfront Dr',     5, '09:00:00', '13:00:00', '2025-06-01 00:00:00', '2025-09-15 00:00:00', '507-555-0105', 'info@mankatoriverfm.org'),
+  ('Bemidji Lakeside Farmers',        '300 Lake Shore Dr',     6, '09:00:00', '14:00:00', '2025-06-05 00:00:00', '2025-09-20 00:00:00', '218-555-0106', 'lakeside@bemidjifm.org'),
+  ('Fargo Red River Market',          'Broadway N & 2nd Ave',  7, '10:00:00', '14:00:00', '2025-07-01 00:00:00', '2025-09-30 00:00:00', '701-555-0107', 'hello@redrivermarket.org'),
+  ('La Crosse Riverside Market',      '100 Harborview Plz',    8, '08:00:00', '12:00:00', '2025-05-20 00:00:00', '2025-10-10 00:00:00', '608-555-0108', 'info@lacrossemarket.org'),
+  ('Eau Claire Phoenix Park Market',  '330 Riverfront Ter',    9, '07:30:00', '12:30:00', '2025-05-18 00:00:00', '2025-10-05 00:00:00', '715-555-0109', 'phoenix@eauclairefm.org'),
+  ('Winona Riverwalk Market',         '50 Johnson St',        10, '08:00:00', '12:00:00', '2025-06-01 00:00:00', '2025-09-25 00:00:00', '507-555-0110', 'riverwalk@winonafm.org');
+
+-- =========================
+-- Product Categories
+-- =========================
+INSERT INTO ProductCategory (Name, Description)
+VALUES
+  ('Vegetables',   'Fresh seasonal vegetables'),
+  ('Fruits',       'Fresh seasonal fruits'),
+  ('Baked Goods',  'Bread, pastries, and baked items'),
+  ('Dairy',        'Milk, cheese, yogurt'),
+  ('Meat',         'Beef, pork, poultry'),
+  ('Honey & Jams', 'Local honey and preserves');
+
+-- =========================
+-- Vendors
+-- =========================
+INSERT INTO Vendor (Name, Description, Phone, Email, Website, VendorCategory)
+VALUES
+  ('Green Valley Farms',     'Organic vegetable farm',       '612-555-0201', 'contact@greenvalley.com',   'https://greenvalley.com',    'Farm'),
+  ('North Star Orchard',     'Local apples and pears',       '651-555-0202', 'info@northstarorchard.com', 'https://northstarorchard.com','Orchard'),
+  ('Riverstone Bakery',      'Artisan bread & pastries',     '507-555-0203', 'hello@riverstonebakery.com','https://riverstonebakery.com','Bakery'),
+  ('Sunrise Dairy Co.',      'Small-batch dairy products',   '218-555-0204', 'orders@sunrisedairy.com',   'https://sunrisedairy.com',   'Dairy'),
+  ('Prairie Meats',          'Grass-fed beef and pork',      '701-555-0205', 'sales@prairiemeats.com',    'https://prairiemeats.com',   'Meat'),
+  ('Sweet Clover Honey',     'Local honey & beeswax',        '608-555-0206', 'info@sweetcloverhoney.com', 'https://sweetcloverhoney.com','Honey'),
+  ('Bluffside Produce',      'Seasonal vegetables & herbs',  '507-555-0207', 'bluffside@farms.com',       NULL,                         'Farm'),
+  ('Red River Bakes',        'Cookies & specialty desserts', '701-555-0208', 'bakes@redriver.com',        NULL,                         'Bakery');
+
+-- =========================
+-- Products
+-- =========================
+INSERT INTO Product (VendorID, CategoryID, Name, Description)
+VALUES
+  (1, 1, 'Heirloom Tomatoes',   'Mixed heirloom tomato varieties'),
+  (1, 1, 'Baby Carrots',        'Sweet baby carrots, bunches'),
+  (2, 2, 'Honeycrisp Apples',   'Crisp fall apples'),
+  (2, 2, 'Pear Mix Box',        'Assorted local pears'),
+  (3, 3, 'Sourdough Loaf',      'Artisan sourdough bread'),
+  (3, 3, 'Cinnamon Rolls',      'Six-pack of frosted cinnamon rolls'),
+  (4, 4, 'Whole Milk (1/2 gal)','Non-homogenized whole milk'),
+  (4, 4, 'Aged Cheddar',        '12-month aged cheddar cheese'),
+  (5, 5, 'Beef Bratwurst',      'Pack of 4 grass-fed beef brats'),
+  (5, 5, 'Pork Chops',          'Bone-in pork chops, 1 lb'),
+  (6, 6, 'Raw Wildflower Honey','1 lb glass jar'),
+  (7, 1, 'Mixed Greens',        'Spring salad mix'),
+  (8, 3, 'Chocolate Chip Cookies', 'Dozen large cookies');
+
+-- =========================
+-- Market Events (a few per market)
+-- =========================
+INSERT INTO MarketEvent (MarketID, EventDate, StartTime, Address, Zip, Status, LocationID)
+VALUES
+  (1, '2025-06-07 00:00:00', '08:00:00', '704 S 2nd St', '55401', 'Scheduled', 1),
+  (1, '2025-06-14 00:00:00', '08:00:00', '704 S 2nd St', '55401', 'Scheduled', 1),
+  (2, '2025-06-08 00:00:00', '07:00:00', '290 5th St E', '55101', 'Scheduled', 2),
+  (3, '2025-06-15 00:00:00', '08:00:00', '200 Lake Ave S', '55802', 'Scheduled', 3),
+  (4, '2025-06-21 00:00:00', '07:30:00', '1st Ave SW', '55902', 'Scheduled', 4),
+  (5, '2025-06-22 00:00:00', '09:00:00', '100 Riverfront Dr', '56001', 'Scheduled', 5),
+  (6, '2025-06-28 00:00:00', '09:00:00', '300 Lake Shore Dr', '56601', 'Scheduled', 6),
+  (7, '2025-07-05 00:00:00', '10:00:00', 'Broadway N & 2nd Ave', '58102', 'Scheduled', 7),
+  (8, '2025-06-29 00:00:00', '08:00:00', '100 Harborview Plz', '54601', 'Scheduled', 8),
+  (9, '2025-06-30 00:00:00', '07:30:00', '330 Riverfront Ter', '54701', 'Scheduled', 9),
+  (10,'2025-07-06 00:00:00', '08:00:00', '50 Johnson St', '55987', 'Scheduled', 10);
+
+-- =========================
+-- Customers
+-- =========================
+INSERT INTO Customer (Name, Phone, CustomerType, Email, Username, PasswordHash, PreferredMarketID, CCType, CCZip)
+VALUES
+  ('Alex Johnson',   '612-555-0301', 'Member', 'alex.j@example.com',  'alex_j',   'fakehash1', 1, 'Visa',    '55401'),
+  ('Jamie Smith',    '651-555-0302', 'Guest',  'jamie.s@example.com', 'jamie_s',  'fakehash2', 2, 'MasterCard','55101'),
+  ('Taylor Brown',   '507-555-0303', 'Member', 'taylor.b@example.com','taylor_b', 'fakehash3', 4, 'Visa',    '55902'),
+  ('Chris Wilson',   '701-555-0304', 'Guest',  'chris.w@example.com', 'chris_w',  'fakehash4', 7, 'Amex',    '58102'),
+  ('Jordan Lee',     '608-555-0305', 'Member', 'jordan.l@example.com','jordan_l', 'fakehash5', 8, 'Visa',    '54601');
+
+-- =========================
+-- MarketVendor (which vendor attends which market/event)
+-- =========================
+INSERT INTO MarketVendor (MarketID, VendorID, EventID, BoothNumber, AttendanceDate, Status, Notes)
+VALUES
+  (1, 1, 1, 'A1', '2025-06-07', 'Confirmed', 'Near main entrance'),
+  (1, 3, 1, 'B2', '2025-06-07', 'Confirmed', 'Bakery row'),
+  (2, 2, 3, 'C1', '2025-06-08', 'Confirmed', 'Fruit stand'),
+  (3, 1, 4, 'A3', '2025-06-15', 'Invited',   'First time in Duluth'),
+  (4, 4, 5, 'D1', '2025-06-21', 'Confirmed', 'Dairy cooler access'),
+  (5, 5, 6, 'E2', '2025-06-22', 'Confirmed', 'Meat vendor section'),
+  (6, 6, 7, 'F1', '2025-06-28', 'Confirmed', 'Honey / jams area'),
+  (7, 8, 8, 'G1', '2025-07-05', 'Confirmed', 'Dessert alley'),
+  (8, 7, 9, 'H1', '2025-06-29', 'Confirmed', NULL),
+  (9, 1,10, 'A2', '2025-06-30', 'Confirmed', NULL);
+
+-- =========================
+-- Inventory (stock per event)
+-- =========================
+INSERT INTO Inventory (VendorID, ProductID, EventID, AvailableQuantity, ReservedQuantity, Status)
+VALUES
+  (1, 1, 1, 100, 10, 'Available'),
+  (1, 2, 1, 80,  5,  'Available'),
+  (3, 5, 1, 60,  8,  'Available'),
+  (3, 6, 1, 40,  4,  'Available'),
+  (2, 3, 3, 90,  6,  'Available'),
+  (2, 4, 3, 70,  3,  'Available'),
+  (4, 7, 5, 50,  2,  'Available'),
+  (4, 8, 5, 35,  1,  'Available'),
+  (5, 9, 6, 60,  5,  'Available'),
+  (5,10, 6, 40,  4,  'Available'),
+  (6,11, 7, 45,  3,  'Available'),
+  (7,12, 9, 55,  4,  'Available'),
+  (8,13, 8, 80,  6,  'Available');
+
+-- =========================
+-- Orders, OrderItems, Payments
+-- =========================
+
+-- Orders
+INSERT INTO `Order` (UserID, EventID, PickupDate, TotalAmount, PaymentStatus, PickupStatus)
+VALUES
+  (1, 1, '2025-06-07 11:30:00', 24.50, 'Paid',  'Pending'),
+  (2, 3, '2025-06-08 10:45:00', 18.00, 'Paid',  'Ready'),
+  (3, 5, '2025-06-21 12:00:00', 32.75, 'Paid',  'Pending'),
+  (4, 8, '2025-07-05 13:00:00', 15.00, 'Paid',  'Pending'),
+  (5, 9, '2025-06-30 11:00:00', 22.25, 'Paid',  'Pending');
+
+-- Assume OrderIDs 1–5 after insert above
+
+-- OrderItems
+INSERT INTO OrderItem (OrderID, ProductID, Quantity, UnitPrice)
+VALUES
+  (1, 1, 2, 4.50),   -- Heirloom Tomatoes
+  (1, 5, 1, 5.50),   -- Sourdough Loaf
+  (2, 3, 3, 3.00),   -- Honeycrisp Apples
+  (2, 6, 1, 6.00),   -- Cinnamon Rolls
+  (3, 8, 1, 8.75),   -- Aged Cheddar
+  (3, 9, 2, 6.50),   -- Beef Bratwurst
+  (4,13, 1, 8.00),   -- Cookies
+  (4,11, 1, 7.00),   -- Raw Honey
+  (5,12, 2, 4.25),   -- Mixed Greens
+  (5, 2, 1, 3.75);   -- Baby Carrots
+
+-- Payments
+INSERT INTO Payment (OrderID, UserID, Amount, Method, TransactionID, Status)
+VALUES
+  (1, 1, 24.50, 'Card', 'TXN-1001', 'Succeeded'),
+  (2, 2, 18.00, 'Card', 'TXN-1002', 'Succeeded'),
+  (3, 3, 32.75, 'Card', 'TXN-1003', 'Succeeded'),
+  (4, 4, 15.00, 'Cash', 'TXN-1004', 'Succeeded'),
+  (5, 5, 22.25, 'Card', 'TXN-1005', 'Succeeded');
