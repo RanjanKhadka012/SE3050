@@ -1,71 +1,52 @@
- Farmers Market Management System
+# Farmers Market Management System
 
-Project Overview
-The Farmers Market Management System is a database driven application designed to efficiently manage the operations of local markets, vendors, products, and customer orders.  
-This project models the interactions between markets, vendors, products, customers, and events, providing a centralized system for organizing and tracking market activities.
+A full-stack web application for managing farmers markets, vendors, products, inventory, and customer orders.
 
-The goal is to streamline communication, improve inventory tracking, and simplify order and payment processing for vendors and customers participating in various market events.
+## Folder Structure
 
-Objectives
- To design a normalised relational that supports the management of markets, vendors, products, orders, and payments.
- To ensure data consistency and referential integrity through the use of appropriate primary and foreign key relationships.
- To facilitate reporting and analytics through structured relationships among entities.
+```
+SE3050/
+├── frontend/          # HTML, CSS, and client-side JavaScript
+├── backend/           # Node.js server and API routes
+├── db/                # SQL schema, queries, and data files
+├── docs/              # Documentation (ERD, normalization)
+├── public/            # Static assets (if needed)
+├── Readme.md          # This file
+├── package.json       # Dependencies
+└── .gitignore         # Git ignore rules
+```
 
+## Quick Start
 
+1. **View the database design**: Open `docs/ERD.png`
+2. **Set up the database**: Use `db/schema.sql` to create tables
+3. **Install dependencies**: `npm install`
+4. **Start the backend server**: `npm start` (or `node backend/server.js`)
+5. **Open the application**: Navigate to `frontend/index.html` in your browser
 
- Features
- Market Management
- Create and manage market profiles with location, opening hours, and contact information.
- Support multiple market events occurring on different dates and locations.
- Track vendor participation in each market or event.
+## Directory Details
 
- Vendor & Product Management
- Maintain vendor profiles with contact information, descriptions, and website links.
- Categorize vendors by business type or category.
- Manage an inventory of products offered by vendors, including stock availability and categories.
+- **frontend/**: HTML pages, CSS styling, and JavaScript logic
+- **backend/**: Node.js Express server, database connections, and API endpoints
+- **db/**: SQL files for schema, data, and queries
+- **docs/**: Entity-relationship diagram and documentation
 
-Inventory Management
- Track available and reserved product quantities.
- Associate inventory records with both vendors and market events.
- Record last update timestamps and inventory status.
+## Features
 
- Order & Payment Processing
- Allow customers to place orders for products from multiple vendors.
- Record order details, including quantity, price, and order date.
- Integrate payment information, including transaction details, amount, and payment status.
+- **Market Management**: Browse and manage farmers markets
+- **Vendor & Product Search**: Search for vendors and products
+- **Order Management**: Place and track orders
+- **Inventory Tracking**: Real-time product availability
+- **Payment Processing**: Order and payment status
 
- Customer Management
- Store customer profiles with names, contact info, and account credentials.
- Track customer order histories and market attendance.
+## Authors
 
+- Ranjan Khadka — https://github.com/RanjanKhadka012
+- Tristan Brown
+- Aaron Kraska
 
+---
 
- Database Design
-
- Entity Relationship Diagram (ERD)
-The database design is represented in the following ERD:
- 
-
-
-The ERD shows the relationships between all key entities:
- Market, MarketEvent, and MarketVendor manage the scheduling and participation of vendors.
- Vendor, Product, Category, and Inventory manage product listings and stock control.
- Customer, Order, OrderItem, and Payment handle purchasing and transactions.
- Country_City stores geographical information used across entities.
-
- Farmers Market Management System
-
-A compact relationaldatabase design for managing markets, vendors, products, inventory, and orders.
- What this repo contains
- ERD and schema design for Markets, Vendors, Products, Inventory, Orders, and Payments.
-
- Author
-Ranjan Khadka 
-Tristan Brown
-Aaron Kraska
-
-
-
-Course: SE3050  
-Date: October 2025
+**Course**: SE3050  
+**Date**: October 2025
 

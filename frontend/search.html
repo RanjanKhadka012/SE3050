@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Farmers Market Finder – Search Products</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <h1>Farmers Market Finder</h1>
+  <nav>
+    <a href="/">Markets</a>
+    <a href="/search">Search Products</a>
+    <a href="/orders">My Orders</a>
+  </nav>
+</header>
+
+<main>
+  <section>
+    <h2>Search Products</h2>
+    <form id="search-form" class="search-form">
+      <input type="text" id="search-input" placeholder="Search for kale, honey, bread..." />
+      <button type="submit">Search</button>
+    </form>
+    <div id="search-results"></div>
+  </section>
+
+  <section id="preorder-panel" class="panel hidden">
+    <h3 id="preorder-title">Pre-order</h3>
+    <p id="preorder-info"></p>
+    <form id="preorder-form" class="form-panel">
+      <input type="hidden" id="preorder-event-id">
+      <input type="hidden" id="preorder-product-id">
+      <label>
+        Quantity:
+        <input type="number" id="preorder-qty" min="1" value="1">
+      </label>
+      <button type="submit">Place Pre-order</button>
+      <button type="button" id="preorder-cancel">Cancel</button>
+    </form>
+    <div id="preorder-message"></div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; <span id="year"></span> Farmers Market Finder</p>
+</footer>
+
+<script src="search.js"></script>
+</body>
+</html>
