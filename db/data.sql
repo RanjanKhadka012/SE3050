@@ -287,7 +287,7 @@ INSERT INTO OrderItem (OrderItemID, OrderID, ProductID, Quantity, UnitPrice) VAL
 (10,4,9,1,4.00);   -- sunflower microgreens
 
 -- Backfill order totals
-UPDATE Orders o
+UPDATE `order` o
 JOIN (
   SELECT oi.OrderID, SUM(oi.Quantity * oi.UnitPrice) AS total
   FROM OrderItem oi
