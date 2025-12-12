@@ -47,6 +47,10 @@ SE3050/
 
 ---
 
+## Presentation
+
+- Video Link: https://docs.google.com/videos/d/1v6RxkHsFZDdeEbUFhjyfcH9-VZzjsaGq1_F4XyKCpLc/edit?usp=sharing 
+
 **Course**: SE3050  
 **Date**: October 2025
 
