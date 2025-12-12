@@ -1,12 +1,14 @@
 // db.js
+require('dotenv').config();
+
 const mysql = require('mysql2/promise');
 
 const pool = mysql.createPool({
-  host: 'localhost',
-  port: 3306,        // change to match port on MySQL
-  user: 'root',         // change if needed
-  password: 'kraska5117',         // change to match your password for MySQL
-  database: 'se3050',   // change to match your DB name
+  host: process.env.DB_HOST || 'localhost',
+  port: process.env.DB_PORT || 3306,
+  user: process.env.DB_USER || 'root',
+  password: process.env.DB_PASSWORD || '',
+  database: process.env.DB_NAME || 'Farmers_Market',
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0
